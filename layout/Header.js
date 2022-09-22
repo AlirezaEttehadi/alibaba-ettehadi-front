@@ -25,7 +25,7 @@ export default function Header() {
         </Typography>
         <Box display="flex" alignItems="center">
           <IconButton
-            sx={{ ml: 1 }}
+            sx={{ mr: 1 }}
             onClick={colorMode.toggleColorMode}
             color="inherit"
           >
