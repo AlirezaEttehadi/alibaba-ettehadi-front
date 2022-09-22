@@ -13,6 +13,9 @@ export const lightTheme = createTheme({
       main: "hsl(0, 0%, 100%)",
     },
   },
+  typography: {
+    fontFamily: "Nunito Sans",
+  },
 });
 
 export const darkTheme = createTheme({
@@ -27,5 +30,8 @@ export const darkTheme = createTheme({
     primary: {
       main: "hsl(209, 23%, 22%)",
     },
+  },
+  typography: {
+    fontFamily: "Nunito Sans",
   },
 });

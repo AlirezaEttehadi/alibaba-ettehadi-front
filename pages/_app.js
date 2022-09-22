@@ -7,6 +7,7 @@ import { createTheme } from "@mui/system";
 import { lightTheme, darkTheme } from "../helper/themeHelper";
 import Layout from "../layout";
 import { ColorContext } from "../contexts/ColorContext";
+import "../styles/main.scss";
 
 function MyApp({ Component, pageProps }) {
   const [mode, setMode] = useState("light");
