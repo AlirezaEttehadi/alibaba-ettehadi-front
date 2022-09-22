@@ -18,7 +18,7 @@ export default function Header() {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        bgcolor={theme.palette.background.default}
+        bgcolor={theme.palette.primary.main}
       >
         <span>Where in the world?</span>
         <Box display="flex" alignItems="center">
