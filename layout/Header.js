@@ -14,7 +14,12 @@ export default function Header() {
   const theme = useTheme();
   return (
     <AppBar position="static">
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        bgcolor={theme.palette.background.default}
+      >
         <span>Where in the world?</span>
         <Box display="flex" alignItems="center">
           <IconButton
@@ -23,9 +28,9 @@ export default function Header() {
             color="inherit"
           >
             {theme.palette.mode === "dark" ? (
-              <DarkModeOutlinedIcon />
-            ) : (
               <DarkModeIcon />
+            ) : (
+              <DarkModeOutlinedIcon />
             )}
           </IconButton>
           {theme.palette.mode} mode
