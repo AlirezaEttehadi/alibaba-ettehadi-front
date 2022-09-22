@@ -20,7 +20,9 @@ export default function Header() {
         alignItems="center"
         bgcolor={theme.palette.primary.main}
       >
-        <Typography variant="h5">Where in the world?</Typography>
+        <Typography variant="h6" fontWeight="800">
+          Where in the world?
+        </Typography>
         <Box display="flex" alignItems="center">
           <IconButton
             sx={{ ml: 1 }}
