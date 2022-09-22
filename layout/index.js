@@ -1,7 +1,9 @@
+import Header from "./Header";
+
 export default function Layout({ children }) {
   return (
     <>
-      <div>Hello From Layout!</div>
+      <Header />
       {children}
     </>
   );
