@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { useTheme } from "@emotion/react";
-import { IconButton } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 
 import { ColorContext } from "../contexts/ColorContext";
 
@@ -20,7 +20,7 @@ export default function Header() {
         alignItems="center"
         bgcolor={theme.palette.primary.main}
       >
-        <span>Where in the world?</span>
+        <Typography variant="h5">Where in the world?</Typography>
         <Box display="flex" alignItems="center">
           <IconButton
             sx={{ ml: 1 }}
