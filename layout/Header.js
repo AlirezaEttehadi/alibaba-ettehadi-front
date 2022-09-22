@@ -5,7 +5,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 export default function Header() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
