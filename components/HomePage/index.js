@@ -1,13 +1,40 @@
+import { useState, useEffect } from "react";
+
 import { useTheme } from "@emotion/react";
 import { Grid, useMediaQuery } from "@mui/material";
+import axios from "axios";
 
 import CountryCard from "./components/CountryCard";
 import SearchInput from "./components/SearchInput";
 import SelectInput from "./components/SelectInput";
 
+const filterCountriesByRegion = async (region) => {
+  const { data } = await axios.get(
+    `https://restcountries.com/v2/region/${region}`
+  );
+  return data;
+};
+
 export default function HomePage({ countries }) {
+  const [_countries, setCountries] = useState([]);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const [region, setRegion] = useState("");
+
+  const handleRegionChange = (event) => {
+    setRegion(event.target.value);
+  };
+
+  useEffect(() => {
+    setCountries(countries);
+  }, [countries]);
+
+  useEffect(() => {
+    if (region !== "") {
+      filterCountriesByRegion(region).then((res) => setCountries(res));
+    }
+  }, [region]);
 
   return (
     <>
@@ -29,11 +56,14 @@ export default function HomePage({ countries }) {
           display="flex"
           justifyContent={isDesktop ? "flex-end" : "flex-start"}
         >
-          <SelectInput />
+          <SelectInput
+            region={region}
+            handleRegionChange={handleRegionChange}
+          />
         </Grid>
       </Grid>
       <Grid container spacing={2}>
-        {countries?.map((country) => {
+        {_countries?.map((country) => {
           return <CountryCard key={country.name} country={country} />;
         })}
       </Grid>

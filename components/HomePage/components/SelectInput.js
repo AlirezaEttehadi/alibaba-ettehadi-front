@@ -1,18 +1,11 @@
-import { useState } from "react";
-
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useTheme } from "@emotion/react";
 
-export default function SelectInput() {
+export default function SelectInput({ region, handleRegionChange }) {
   const theme = useTheme();
-  const [region, setRegion] = useState("");
-
-  const handleChange = (event) => {
-    setRegion(event.target.value);
-  };
   return (
     <FormControl
       sx={{
@@ -27,7 +20,7 @@ export default function SelectInput() {
         id="filter-by-region"
         value={region}
         label="Filter by Region"
-        onChange={handleChange}
+        onChange={handleRegionChange}
       >
         <MenuItem value="">
           <em>None</em>
