@@ -10,6 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
@@ -100,13 +101,27 @@ export default function Home() {
             alt="green iguana"
           />
           <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              Lizard
+            <Typography gutterBottom variant="h5" component="div">
+              Germany
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
-            </Typography>
+            <Box display="flex" alignItems="center">
+              <Typography variant="body1" mr={0.5}>
+                Population:
+              </Typography>
+              <Typography variant="body2">81,770,900</Typography>
+            </Box>
+            <Box display="flex" alignItems="center">
+              <Typography variant="body1" mr={0.5}>
+                Region:
+              </Typography>
+              <Typography variant="body2">Europe</Typography>
+            </Box>
+            <Box display="flex" alignItems="center">
+              <Typography variant="body1" mr={0.5}>
+                Capital:
+              </Typography>
+              <Typography variant="body2">Berlin</Typography>
+            </Box>
           </CardContent>
         </CardActionArea>
       </Card>
