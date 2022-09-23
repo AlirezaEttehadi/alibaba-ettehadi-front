@@ -41,7 +41,6 @@ export default function Home() {
           <Paper
             component="form"
             sx={{
-              p: "2px 4px",
               display: "flex",
               alignItems: "center",
               backgroundColor: theme.palette.primary.main,
@@ -51,7 +50,7 @@ export default function Home() {
               <SearchIcon />
             </IconButton>
             <InputBase
-              sx={{ ml: 1, flex: 1 }}
+              sx={{ ml: 1, flex: 1, height: "40px" }}
               placeholder="Search for a country..."
             />
           </Paper>
@@ -68,6 +67,7 @@ export default function Home() {
               backgroundColor: theme.palette.primary.main,
               minWidth: 200,
             }}
+            size="small"
           >
             <InputLabel id="filter-by-region-label">
               Filter by Region
