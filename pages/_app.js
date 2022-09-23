@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 import { ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,13 +12,21 @@ import "../styles/main.scss";
 function MyApp({ Component, pageProps }) {
   const [mode, setMode] = useState("light");
 
+  useEffect(() => {
+    const localStorageTheme = localStorage.getItem("theme");
+    if (localStorageTheme) {
+      setMode(localStorageTheme);
+    }
+  }, []);
+
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+        localStorage.setItem("theme", mode === "light" ? "dark" : "light");
       },
     }),
-    []
+    [mode]
   );
 
   const theme = useMemo(
