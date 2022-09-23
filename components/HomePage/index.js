@@ -15,8 +15,16 @@ const filterCountriesByRegion = async (region) => {
   return data;
 };
 
+const filterCountriesBySearch = async (search) => {
+  const { data } = await axios.get(
+    `https://restcountries.com/v2/name/${search}`
+  );
+  return data;
+};
+
 export default function HomePage({ countries }) {
   const [_countries, setCountries] = useState([]);
+  const [search, setSearch] = useState("");
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
@@ -35,6 +43,11 @@ export default function HomePage({ countries }) {
       filterCountriesByRegion(region).then((res) => setCountries(res));
     }
   }, [region]);
+  useEffect(() => {
+    if (search !== "") {
+      filterCountriesBySearch(search).then((res) => setCountries(res));
+    }
+  }, [search]);
 
   return (
     <>
@@ -47,7 +60,7 @@ export default function HomePage({ countries }) {
         mb={4.5}
       >
         <Grid item xs={12} md={4}>
-          <SearchInput />
+          <SearchInput setSearch={setSearch} />
         </Grid>
         <Grid
           item
