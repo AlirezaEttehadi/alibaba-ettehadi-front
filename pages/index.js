@@ -100,7 +100,7 @@ export default function Home() {
             alt="green iguana"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h6" component="div">
               Lizard
             </Typography>
             <Typography variant="body2" color="text.secondary">
