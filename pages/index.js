@@ -19,8 +19,11 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import axios from "axios";
 
-export default function Home() {
+import { countries } from "../countries";
+
+export default function Home({ countries }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const [region, seetRegion] = useState("");
@@ -93,147 +96,59 @@ export default function Home() {
         </Grid>
       </Grid>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <Card sx={{ backgroundColor: theme.palette.primary.main }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Germany
-                </Typography>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Population:
-                  </Typography>
-                  <Typography variant="body2">81,770,900</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Region:
-                  </Typography>
-                  <Typography variant="body2">Europe</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Capital:
-                  </Typography>
-                  <Typography variant="body2">Berlin</Typography>
-                </Box>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <Card sx={{ backgroundColor: theme.palette.primary.main }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Germany
-                </Typography>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Population:
-                  </Typography>
-                  <Typography variant="body2">81,770,900</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Region:
-                  </Typography>
-                  <Typography variant="body2">Europe</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Capital:
-                  </Typography>
-                  <Typography variant="body2">Berlin</Typography>
-                </Box>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <Card sx={{ backgroundColor: theme.palette.primary.main }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Germany
-                </Typography>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Population:
-                  </Typography>
-                  <Typography variant="body2">81,770,900</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Region:
-                  </Typography>
-                  <Typography variant="body2">Europe</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Capital:
-                  </Typography>
-                  <Typography variant="body2">Berlin</Typography>
-                </Box>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <Card sx={{ backgroundColor: theme.palette.primary.main }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Germany
-                </Typography>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Population:
-                  </Typography>
-                  <Typography variant="body2">81,770,900</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Region:
-                  </Typography>
-                  <Typography variant="body2">Europe</Typography>
-                </Box>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="body1" mr={0.5}>
-                    Capital:
-                  </Typography>
-                  <Typography variant="body2">Berlin</Typography>
-                </Box>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+        {countries?.map((country) => {
+          return (
+            <Grid key={country.name} item xs={12} sm={6} md={4} lg={3}>
+              <Card sx={{ backgroundColor: theme.palette.primary.main }}>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={country.flags.svg}
+                    alt={`The falg of${country.name}`}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {country.name}
+                    </Typography>
+                    <Box display="flex" alignItems="center">
+                      <Typography variant="body1" mr={0.5}>
+                        Population:
+                      </Typography>
+                      <Typography variant="body2">
+                        {country.population}
+                      </Typography>
+                    </Box>
+                    <Box display="flex" alignItems="center">
+                      <Typography variant="body1" mr={0.5}>
+                        Region:
+                      </Typography>
+                      <Typography variant="body2">{country.region}</Typography>
+                    </Box>
+                    <Box display="flex" alignItems="center">
+                      <Typography variant="body1" mr={0.5}>
+                        Capital:
+                      </Typography>
+                      <Typography variant="body2">{country.capital}</Typography>
+                    </Box>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          );
+        })}
       </Grid>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  // const { data: countries } = await axios.get(
+  //   "https://restcountries.com/v2/all"
+  // );
+  return {
+    props: {
+      countries,
+    },
+  };
 }
