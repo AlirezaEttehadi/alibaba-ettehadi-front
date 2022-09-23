@@ -1,5 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import Link from "next/link";
 
 export default function CountryDetails({ _country }) {
   return (
@@ -92,11 +93,13 @@ export default function CountryDetails({ _country }) {
           </Typography>
         </Grid>
         <Grid item xs={12} md={9}>
-          {_country.borders.map((border) => {
+          {_country.borders?.map((border) => {
             return (
-              <Button key={border} variant="contained" sx={{ marginRight: 1 }}>
-                {border}
-              </Button>
+              <Link key={border} passHref href={`/${border}/`}>
+                <Button variant="contained" sx={{ marginRight: 1 }}>
+                  {border}
+                </Button>
+              </Link>
             );
           })}
         </Grid>
