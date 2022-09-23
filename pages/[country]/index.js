@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import { Box } from "@mui/system";
 import axios from "axios";
@@ -12,7 +12,11 @@ export default function Country({ country }) {
       </Button>
       <Grid container spacing={2} mt={5}>
         <Grid item xs={12} md={6}>
-          asdfasdfasdf
+          <CardMedia
+            component="img"
+            image={_country.flags.svg}
+            alt={`The falg of${_country.name}`}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <Box mb={4}>
