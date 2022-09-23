@@ -1,13 +1,20 @@
+import { useRouter } from "next/router";
+
 import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import { Box } from "@mui/system";
 import axios from "axios";
 
 export default function Country({ country }) {
+  const router = useRouter();
   const _country = country?.[0];
   return (
     <>
-      <Button variant="contained" startIcon={<KeyboardBackspaceRoundedIcon />}>
+      <Button
+        variant="contained"
+        startIcon={<KeyboardBackspaceRoundedIcon />}
+        onClick={() => router.back()}
+      >
         Back
       </Button>
       <Grid container spacing={2} mt={5}>
