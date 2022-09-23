@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <Box px={isDesktop ? "52px" : "32px"} py={isDesktop ? "40px" : "44px"}>
+      <Box px={isDesktop ? 7.5 : 4} py={isDesktop ? 5 : 5.5}>
         {children}
       </Box>
     </>

@@ -35,7 +35,7 @@ export default function Home() {
         direction="row"
         justifyContent="space-between"
         alignItems="center"
-        mb="36px"
+        mb={4.5}
       >
         <Grid item xs={12} md={4}>
           <Paper
@@ -47,7 +47,7 @@ export default function Home() {
               backgroundColor: theme.palette.primary.main,
             }}
           >
-            <IconButton type="button" sx={{ p: "10px" }}>
+            <IconButton type="button" sx={{ p: 1 }}>
               <SearchIcon />
             </IconButton>
             <InputBase
