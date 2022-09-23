@@ -1,8 +1,10 @@
 import { Button, Grid, Typography } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import { Box } from "@mui/system";
+import axios from "axios";
 
-export default function Country() {
+export default function Country({ country }) {
+  const _country = country?.[0];
   return (
     <>
       <Button variant="contained" startIcon={<KeyboardBackspaceRoundedIcon />}>
@@ -15,7 +17,7 @@ export default function Country() {
         <Grid item xs={12} md={6}>
           <Box mb={4}>
             <Typography gutterBottom variant="h5" component="div">
-              Belgium
+              {_country.name}
             </Typography>
           </Box>
           <Grid container spacing={2} mb={4}>
@@ -24,31 +26,31 @@ export default function Country() {
                 <Typography variant="body1" mr={0.5}>
                   Native Name:
                 </Typography>
-                <Typography variant="body2">Belgie</Typography>
+                <Typography variant="body2">{_country.nativeName}</Typography>
               </Box>
               <Box display="flex" alignItems="center">
                 <Typography variant="body1" mr={0.5}>
                   Population:
                 </Typography>
-                <Typography variant="body2">11,319,511</Typography>
+                <Typography variant="body2">{_country.population}</Typography>
               </Box>
               <Box display="flex" alignItems="center">
                 <Typography variant="body1" mr={0.5}>
                   Region:
                 </Typography>
-                <Typography variant="body2">Europe</Typography>
+                <Typography variant="body2">{_country.region}</Typography>
               </Box>
               <Box display="flex" alignItems="center">
                 <Typography variant="body1" mr={0.5}>
                   Sub Region:
                 </Typography>
-                <Typography variant="body2">Western Europe</Typography>
+                <Typography variant="body2">{_country.subregion}</Typography>
               </Box>
               <Box display="flex" alignItems="center">
                 <Typography variant="body1" mr={0.5}>
                   Capital:
                 </Typography>
-                <Typography variant="body2">Brussels</Typography>
+                <Typography variant="body2">{_country.capital}</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -56,19 +58,41 @@ export default function Country() {
                 <Typography variant="body1" mr={0.5}>
                   Top Level Domain:
                 </Typography>
-                <Typography variant="body2">.be</Typography>
+                {_country.topLevelDomain.map((domain) => {
+                  return (
+                    <Typography key={domain} variant="body2">
+                      {domain}
+                    </Typography>
+                  );
+                })}
               </Box>
               <Box display="flex" alignItems="center">
                 <Typography variant="body1" mr={0.5}>
                   Currencies:
                 </Typography>
-                <Typography variant="body2">Euro</Typography>
+                {_country.currencies.map((currency) => {
+                  return (
+                    <Typography key={currency.name} variant="body2">
+                      {currency.name}
+                    </Typography>
+                  );
+                })}
               </Box>
               <Box display="flex" alignItems="center">
                 <Typography variant="body1" mr={0.5}>
                   Languages:
                 </Typography>
-                <Typography variant="body2">Dutch, French, German</Typography>
+                {_country.languages.map((language) => {
+                  return (
+                    <Typography
+                      key={language.name}
+                      variant="body2"
+                      sx={{ marginRight: 1 }}
+                    >
+                      {language.name}
+                    </Typography>
+                  );
+                })}
               </Box>
             </Grid>
           </Grid>
@@ -79,15 +103,32 @@ export default function Country() {
               </Typography>
             </Grid>
             <Grid item xs={12} md={9}>
-              <Button variant="contained">France</Button>
-              <Button variant="contained" sx={{ marginX: 1 }}>
-                Germany
-              </Button>
-              <Button variant="contained">Netherlands</Button>
+              {_country.borders.map((border) => {
+                return (
+                  <Button
+                    key={border}
+                    variant="contained"
+                    sx={{ marginRight: 1 }}
+                  >
+                    {border}
+                  </Button>
+                );
+              })}
             </Grid>
           </Grid>
         </Grid>
       </Grid>
     </>
   );
+}
+
+export async function getServerSideProps({ params }) {
+  const { data: country } = await axios.get(
+    `https://restcountries.com/v2/name/${params.country}`
+  );
+  return {
+    props: {
+      country,
+    },
+  };
 }

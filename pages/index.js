@@ -99,7 +99,7 @@ export default function Home({ countries }) {
       <Grid container spacing={2}>
         {countries?.map((country) => {
           return (
-            <Link key={country.name} href={`/${country.name}`}>
+            <Link key={country.name} href={`/${country.name}/`} passHref>
               <Grid item xs={12} sm={6} md={4} lg={3}>
                 <Card sx={{ backgroundColor: theme.palette.primary.main }}>
                   <CardActionArea>
