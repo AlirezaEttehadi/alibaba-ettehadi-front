@@ -72,6 +72,20 @@ export default function Country() {
               </Box>
             </Grid>
           </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={4}>
+              <Typography variant="body1" mr={0.5}>
+                Border Countries:
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={8}>
+              <Button variant="contained">France</Button>
+              <Button variant="contained" sx={{ marginX: 1 }}>
+                Germany
+              </Button>
+              <Button variant="contained">Netherlands</Button>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </>
