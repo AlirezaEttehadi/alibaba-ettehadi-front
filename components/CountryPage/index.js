@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Button, CardMedia, Grid } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-import CountryDetails from "./CountryDetails";
+import CountryDetails from "./components/CountryDetails";
 
 export default function CountryPage({ country }) {
   const router = useRouter();
