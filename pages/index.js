@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import { countries } from "../countries";
 import HomePage from "../components/HomePage";
 
