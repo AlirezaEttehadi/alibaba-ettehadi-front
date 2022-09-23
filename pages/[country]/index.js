@@ -1,5 +1,6 @@
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
+import { Box } from "@mui/system";
 
 export default function Country() {
   return (
@@ -12,7 +13,59 @@ export default function Country() {
           asdfasdfasdf
         </Grid>
         <Grid item xs={12} md={6}>
-          asdfasdf
+          <Box>
+            <Typography gutterBottom variant="h5" component="div">
+              Belgium
+            </Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Native Name:
+            </Typography>
+            <Typography variant="body2">Belgie</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Population:
+            </Typography>
+            <Typography variant="body2">11,319,511</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Region:
+            </Typography>
+            <Typography variant="body2">Europe</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Sub Region:
+            </Typography>
+            <Typography variant="body2">Western Europe</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Capital:
+            </Typography>
+            <Typography variant="body2">Brussels</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Top Level Domain:
+            </Typography>
+            <Typography variant="body2">.be</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Currencies:
+            </Typography>
+            <Typography variant="body2">Euro</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography variant="body1" mr={0.5}>
+              Languages:
+            </Typography>
+            <Typography variant="body2">Dutch, French, German</Typography>
+          </Box>
         </Grid>
       </Grid>
     </>
