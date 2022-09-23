@@ -8,7 +8,7 @@ import { useTheme } from "@emotion/react";
 import { IconButton, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { ColorContext } from "../contexts/ColorContext";
+import { ColorContext } from "../../contexts/ColorContext";
 
 export default function Header() {
   const colorMode = useContext(ColorContext);

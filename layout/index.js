@@ -2,7 +2,7 @@ import { useTheme } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
 
-import Header from "./Header";
+import Header from "./components/Header";
 
 export default function Layout({ children }) {
   const theme = useTheme();
