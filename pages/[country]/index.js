@@ -72,13 +72,13 @@ export default function Country() {
               </Box>
             </Grid>
           </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={4}>
+          <Grid container spacing={2} display="flex" alignItems="center">
+            <Grid item xs={12} md={3}>
               <Typography variant="body1" mr={0.5}>
                 Border Countries:
               </Typography>
             </Grid>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={9}>
               <Button variant="contained">France</Button>
               <Button variant="contained" sx={{ marginX: 1 }}>
                 Germany
