@@ -1,9 +1,18 @@
+import Head from "next/head";
+
 import axios from "axios";
 
 import HomePage from "../components/HomePage";
 
 export default function Home({ countries }) {
-  return <HomePage countries={countries} />;
+  return (
+    <>
+      <Head>
+        <title>Countries</title>
+      </Head>
+      <HomePage countries={countries} />
+    </>
+  );
 }
 
 export async function getStaticProps() {

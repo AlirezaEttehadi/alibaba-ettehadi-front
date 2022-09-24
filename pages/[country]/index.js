@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import axios from "axios";
 
@@ -10,7 +11,14 @@ export default function Country({ country }) {
   if (router.isFallback) {
     return <CircularIndeterminate />;
   }
-  return <CountryPage country={country} />;
+  return (
+    <>
+      <Head>
+        <title>{country.name}</title>
+      </Head>
+      <CountryPage country={country} />
+    </>
+  );
 }
 
 export async function getStaticProps({ params }) {
