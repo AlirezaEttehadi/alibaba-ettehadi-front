@@ -1,4 +1,4 @@
-Demo of the project : https://632e8a22299c48491dae76d0--astounding-fudge-2de811.netlify.app/
+Demo of the project : https://main--astounding-fudge-2de811.netlify.app/
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
