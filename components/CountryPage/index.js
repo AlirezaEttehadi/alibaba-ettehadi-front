@@ -20,7 +20,7 @@ export default function CountryPage({ country }) {
         <Grid item xs={12} md={6}>
           <CardMedia
             component="img"
-            image={country.flags.svg}
+            image={country.flags?.svg}
             alt={`The falg of${country.name}`}
           />
         </Grid>
