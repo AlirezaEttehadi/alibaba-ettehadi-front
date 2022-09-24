@@ -7,7 +7,6 @@ import CountryDetails from "./components/CountryDetails";
 
 export default function CountryPage({ country }) {
   const router = useRouter();
-  const _country = country?.[0];
   return (
     <>
       <Button
@@ -21,12 +20,12 @@ export default function CountryPage({ country }) {
         <Grid item xs={12} md={6}>
           <CardMedia
             component="img"
-            image={_country.flags.svg}
-            alt={`The falg of${_country.name}`}
+            image={country.flags.svg}
+            alt={`The falg of${country.name}`}
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <CountryDetails _country={_country} />
+          <CountryDetails country={country} />
         </Grid>
       </Grid>
     </>

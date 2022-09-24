@@ -6,9 +6,10 @@ export default function Country({ country = {} }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const { data: country } = await axios.get(
+  const response = await axios.get(
     `https://restcountries.com/v2/name/${params.country}`
   );
+  const country = await response?.data?.[0];
   return {
     props: {
       country,
