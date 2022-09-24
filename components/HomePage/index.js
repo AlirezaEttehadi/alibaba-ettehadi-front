@@ -31,6 +31,8 @@ export default function HomePage({ countries }) {
   useEffect(() => {
     if (region !== "") {
       filterCountriesByRegion(region).then((res) => setCountries(res));
+    } else if (region === "") {
+      getAllCountries().then((res) => setCountries(res));
     }
   }, [region]);
   useEffect(() => {
