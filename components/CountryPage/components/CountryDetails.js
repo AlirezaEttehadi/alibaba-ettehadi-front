@@ -48,7 +48,7 @@ export default function CountryDetails({ _country }) {
             <Typography variant="body1" mr={0.5}>
               Top Level Domain:
             </Typography>
-            {_country.topLevelDomain.map((domain) => {
+            {_country.topLevelDomain?.map((domain) => {
               return (
                 <Typography key={domain} variant="body2">
                   {domain}
@@ -60,7 +60,7 @@ export default function CountryDetails({ _country }) {
             <Typography variant="body1" mr={0.5}>
               Currencies:
             </Typography>
-            {_country.currencies.map((currency) => {
+            {_country.currencies?.map((currency) => {
               return (
                 <Typography key={currency.name} variant="body2">
                   {currency.name}
@@ -72,7 +72,7 @@ export default function CountryDetails({ _country }) {
             <Typography variant="body1" mr={0.5}>
               Languages:
             </Typography>
-            {_country.languages.map((language) => {
+            {_country.languages?.map((language) => {
               return (
                 <Typography
                   key={language.name}

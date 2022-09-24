@@ -1,7 +1,7 @@
 import axios from "axios";
 import CountryPage from "../../components/CountryPage";
 
-export default function Country({ country }) {
+export default function Country({ country = {} }) {
   return <CountryPage country={country} />;
 }
 
