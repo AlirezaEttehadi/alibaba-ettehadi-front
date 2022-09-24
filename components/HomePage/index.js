@@ -2,25 +2,15 @@ import { useState, useEffect } from "react";
 
 import { useTheme } from "@emotion/react";
 import { Grid, useMediaQuery } from "@mui/material";
-import axios from "axios";
 
 import CountryCard from "./components/CountryCard";
 import SearchInput from "./components/SearchInput";
 import SelectInput from "./components/SelectInput";
-
-const filterCountriesByRegion = async (region) => {
-  const { data } = await axios.get(
-    `https://restcountries.com/v2/region/${region}`
-  );
-  return data;
-};
-
-const filterCountriesBySearch = async (search) => {
-  const { data } = await axios.get(
-    `https://restcountries.com/v2/name/${search}`
-  );
-  return data;
-};
+import {
+  filterCountriesByRegion,
+  filterCountriesBySearch,
+  getAllCountries,
+} from "../../services/countries";
 
 export default function HomePage({ countries }) {
   const [_countries, setCountries] = useState([]);
@@ -46,6 +36,8 @@ export default function HomePage({ countries }) {
   useEffect(() => {
     if (search !== "") {
       filterCountriesBySearch(search).then((res) => setCountries(res));
+    } else if (search === "") {
+      getAllCountries().then((res) => setCountries(res));
     }
   }, [search]);
 
