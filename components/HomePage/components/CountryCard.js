@@ -23,6 +23,7 @@ export default function CountryCard({ country }) {
               height="140"
               image={country.flags.svg}
               alt={`The falg of${country.name}`}
+              loading="lazy"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
